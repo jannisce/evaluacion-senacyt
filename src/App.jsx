@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Welcome from './pages/Welcome/Welcome.jsx'
 import Home from './pages/Home/Home.jsx'
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage.jsx'
+import Users from './pages/Users/Users.jsx'
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
         <Route path='/' element={<Welcome />}></Route>
 
         <Route path='/home' element={<Home />} />
+        <Route path='/usuarios' element={<Users />} />
 
         <Route path='*' element={<NotFoundPage />} />
       </Routes>
