@@ -1,9 +1,23 @@
 import React from 'react'
-import Home from './pages/Home/Home'
+
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+
+//pages
+import Welcome from './pages/Welcome/Welcome.jsx'
+import Home from './pages/Home/Home.jsx'
+import NotFoundPage from './pages/NotFoundPage/NotFoundPage.jsx'
 
 const App = () => {
   return (
-    <Home />
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Welcome />}></Route>
+
+        <Route path='/home' element={<Home />} />
+
+        <Route path='*' element={<NotFoundPage />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
