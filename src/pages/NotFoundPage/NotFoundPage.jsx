@@ -8,10 +8,10 @@ const NotFoundPage = () => {
         className='bg-white p-8 rounded shadow-md'
         style={{ position: 'relative', zIndex: 1 }}
       >
-        <h1 className='text-3xl font-semibold mb-4'>
+        <h1 className='text-3xl font-semibold mb-4 text-center'>
           Esta página a la que intentas acceder no está disponible
         </h1>
-        <p className='text-gray-600'>
+        <p className='text-gray-600 text-center text-lg'>
           El enlace al que intentas acceder podría estar roto o la página puede
           haber sido eliminada.
         </p>
