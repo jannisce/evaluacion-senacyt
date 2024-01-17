@@ -3,9 +3,12 @@ import axios from 'axios'
 import Layout from '../../components/Layout/Layout'
 import UserCard from '../../components/UserCard/UserCard'
 import BackButton from '../../components/BackButton/BackButton'
+import Loading from '../../components/Loading/Loading'
 
 const Users = () => {
   const [users, setUsers] = useState([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(null)
 
   useEffect(() => {
     axios
@@ -15,7 +18,11 @@ const Users = () => {
         setUsers(validUsers)
       })
       .catch((error) => {
+        setError(error.message)
         console.error('Error al obtener usuarios:', error)
+      })
+      .finally(() => {
+        setLoading(false)
       })
   }, [])
 
@@ -29,7 +36,10 @@ const Users = () => {
 
   return (
     <Layout>
-      <BackButton title="Volver al inicio" to="/home"/>
+      <BackButton title='Volver al inicio' to='/home' />
+
+      {loading && <Loading />}
+      {error && <p className='m-6 text-2xl'>Error al cargar usuarios: {error}</p>}
 
       <div className='m-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'>
         {users.map((user) => (
