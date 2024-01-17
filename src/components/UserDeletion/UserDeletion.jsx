@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
 const UserDeletion = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     id: '',
   })
@@ -16,18 +18,24 @@ const UserDeletion = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    const shouldDelete = window.confirm(
+      `¿Estás seguro de que quieres eliminar el usuario con ID: ${formData.id}?`
+    )
 
-    try {
-      await axios.delete(
-        `https://n913tmwy61.execute-api.us-east-2.amazonaws.com/items/${formData.id}`
-      )
+    if (shouldDelete) {
+      try {
+        await axios.delete(
+          `https://n913tmwy61.execute-api.us-east-2.amazonaws.com/items/${formData.id}`
+        )
 
-      // Limpiar el formulario después de una solicitud exitosa
-      setFormData({
-        id: '',
-      })
-    } catch (error) {
-      console.error('Error al enviar el formulario:', error)
+        // Limpiar el formulario después de una solicitud exitosa
+        setFormData({
+          id: '',
+        })
+        navigate('/usuarios')
+      } catch (error) {
+        console.error('Error al enviar el formulario:', error)
+      }
     }
   }
 

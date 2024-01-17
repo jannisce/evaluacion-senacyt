@@ -2,11 +2,10 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 
 const Welcome = () => {
-
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   const handleCLick = () => {
-    navigate('/home');
+    navigate('/home')
   }
 
   return (
