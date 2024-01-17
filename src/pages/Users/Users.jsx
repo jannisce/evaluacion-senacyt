@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import Layout from '../../components/Layout/Layout'
+import { Link } from 'react-router-dom'
+import UserCard from '../../components/UserCard/UserCard'
 
 const Users = () => {
   const [users, setUsers] = useState([])
@@ -28,21 +30,31 @@ const Users = () => {
   return (
     <Layout>
       <div className='p-6'>
-        <h2 className='text-2xl lg:text-3xl text-left lg:mb-32 border-b-2 border-gray-300 pb-2'>
-          Usuarios
-        </h2>
+        <Link
+          to='/home'
+          className='inline-flex items-center p-3 bg-blue-500 hover:bg-blue-700 text-white font-semibold rounded-md shadow-md transition-all duration-300'
+        >
+          <svg
+            xmlns='http://www.w3.org/2000/svg'
+            fill='none'
+            viewBox='0 0 24 24'
+            stroke='currentColor'
+            className='w-6 h-6 mr-2'
+          >
+            <path
+              strokeLinecap='round'
+              strokeLinejoin='round'
+              strokeWidth='2'
+              d='M10 19l-7-7m0 0l7-7m-7 7h18'
+            />
+          </svg>
+          Volver al inicio
+        </Link>
 
-        <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'>
+        <div className='m-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'>
           {users.map((user) => (
-            <div
-              key={user.id}
-              className='border border-gray-300 p-4 rounded-md'
-            >
-              <h3 className='text-xl font-semibold mb-2'>
-                {user.nombre_completo}
-              </h3>
-              <p>Email: {user.email}</p>
-              <p>Teléfono: {user.telefono}</p>
+            <div key={user.id} className='sm:flex w-full'>
+              <UserCard user={user} />
             </div>
           ))}
         </div>
