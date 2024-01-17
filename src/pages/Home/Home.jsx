@@ -10,8 +10,8 @@ const Home = () => {
       </div>
       <div className='flex flex-col items-center justify-center p-5 lg:flex-row lg:justify-center'>
         <Button title='Ver usuarios' to='/usuarios' />
-        <Button title='Agregar usuario' to='/agregar-usuario' />
-        <Button title='Eliminar usuario' to='/eliminar-usuario' />
+        <Button title='Agregar usuario' to='/usuarios/agregar' />
+        <Button title='Eliminar usuario' to='/usuarios/eliminar' />
       </div>
     </Layout>
   )

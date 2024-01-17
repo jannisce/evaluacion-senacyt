@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 const UserDetailedCard = ({ user }) => {
   return (
@@ -58,7 +58,7 @@ const UserDetailedCard = ({ user }) => {
         </p>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default UserDetailedCard;
+export default UserDetailedCard

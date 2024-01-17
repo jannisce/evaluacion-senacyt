@@ -16,6 +16,7 @@ const Users = () => {
       .then((response) => {
         const validUsers = response.data.filter(isValidUser)
         setUsers(validUsers)
+        // console.log('Usuarios:', response.data)
       })
       .catch((error) => {
         setError(error.message)
