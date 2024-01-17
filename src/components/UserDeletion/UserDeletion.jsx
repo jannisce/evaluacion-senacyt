@@ -32,7 +32,7 @@ const UserDeletion = () => {
         setFormData({
           id: '',
         })
-        navigate('/usuarios')
+        navigate('/home')
       } catch (error) {
         console.error('Error al enviar el formulario:', error)
       }

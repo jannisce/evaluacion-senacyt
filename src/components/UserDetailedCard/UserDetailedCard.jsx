@@ -76,16 +76,22 @@ const UserDetailedCard = ({ user }) => {
 
   const renderInput = (fieldName) => (
     <p className='text-lg mb-4' key={fieldName}>
-      <span className='font-semibold'>{fieldName}:</span>
+      <span className={`font-semibold`}>{fieldName}:</span>
       {isEditing ? (
         <input
           type='text'
           name={fieldName}
           value={editedUser[fieldName]}
           onChange={handleInputChange}
+          className={` ${ isEditing ? 'bg-blue-200' : ''}`}
         />
       ) : (
-        ` ${user[fieldName]}`
+        <input 
+          type='text' 
+          name={fieldName} 
+          value={user[fieldName]} 
+          readOnly
+        />
       )}
     </p>
   )
